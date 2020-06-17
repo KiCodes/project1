@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    BookBarge
+{% endblock %}
+
+
+{% block body %}
+
+{% if booktitle[0] is defined %}
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand"><a href="/" style="color: saddlebrown;">BookBarge</a></h3>
+          <nav class="nav nav-masthead justify-content-center white">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/search">Search</a>
+              <a class="nav-link" href="/logout">Log out</a>
+          </nav>
+        </div>
+      </header>
+        
+</div>
+<table class="table table-bordered table-hover colorsaddle coverss" >
+      <tr><th>Title</th> <th>Author</th> <th>Year</th> <th>ISBN</th> </tr>
+        {% for bookit in booktitle %}
+        <tr >  
+        <td><a href="{{ url_for('bookdetails',this_book_id=bookit.id) }}" method="post" class="colorsaddle">{{ bookit.title }}</a></td>
+        <td>{{ bookit.author }}</td>
+        <td>{{ bookit.year }}</td>
+        <td><a href="" class="colorsaddle">{{ bookit.isbn }}</a></td>
+       </tr>
+        {% endfor %}
+   </table>
+{% elif bookisbn is defined %}
+<table class="table table-bordered table-hover colorsaddle coverss" >
+      <tr><th>Title</th> <th>Author</th> <th>Year</th> <th>ISBN</th> </tr>
+        {% for bookis in bookisbn %}
+        <tr >  
+        <td><a href="{{ url_for('bookdetails',this_book_id=bookis.id) }}" method="post" class="colorsaddle">{{ bookis.title }}</a></td>
+        <td>{{ bookis.author }}</td>
+        <td>{{ bookis.year }}</td>
+        <td><a href="" class="colorsaddle">{{ bookis.isbn }}</a></td>
+       </tr>
+        {% endfor %}
+   </table>
+
+{% else %}
+<table class="table table-bordered table-hover colorsaddle coverss" >
+      <tr><th>Title</th> <th>Author</th> <th>Year</th> <th>ISBN</th> </tr>
+        {% for bookau in bookauthor %}
+        <tr >  
+        <td><a href="{{ url_for('bookdetails',this_book_id=bookau.id) }}" method="post" class="colorsaddle">{{ bookau.title }}</a></td>
+        <td>{{ bookau.author }}</td>
+        <td>{{ bookau.year }}</td>
+        <td><a href="" class="colorsaddle">{{ bookau.isbn }}</a></td>
+       </tr>
+        {% endfor %}
+   </table>
+{% endif %}
+{% endblock %}

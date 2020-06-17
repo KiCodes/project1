@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+   <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand"><a href="/" style="color: saddlebrown;">BookBarge</a></h3>
+          <nav class="nav nav-masthead justify-content-center white">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/search">Search</a>
+          </nav>
+        </div>
+      </header>
+</div>
+
+<div class="coverss d-flex h-100 p-3 mx-auto flex-column">
+    
+<form class="form-signin" action="{{ url_for('adduser') }}" method="post">
+    
+  <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+    <h6 class="h5 mb-3 font-weight-normal" style="color: red;"> {{ message }}</h6>
+  <input type="text" class="form-control" placeholder="Full name" name="fullname" value="" required autofocus>
+    
+  <input type="text" class="form-control" placeholder="Username" name="username" value="" required autofocus>
+    
+  <input type="email" class="form-control" placeholder="Email address" name="email" value="" required autofocus>
+
+  <input type="password" class="form-control" placeholder="Password" value="" name="password" required>
+    
+  <input type="password" class="form-control" placeholder="Confirm Password" value="" name="confirm" required>
+    
+  <div class="checkbox mb-3">
+  </div>
+  <button class="btn btn-lg btn-secondary" type="submit">Sign up</button>
+    <a href="/login" style="color: saddlebrown;">log in</a>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    BookBarge
+{% endblock %}
+
+
+{% block body %}
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand"><a href="/" style="color: saddlebrown;">BookBarge</a></h3>
+          <nav class="nav nav-masthead justify-content-center white">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/search">Search</a>
+            <a class="nav-link" href="/logout">Log out</a>
+          </nav>
+        </div>
+      </header>
+    
+
+<main role="main" class="inner coverss" style="color: saddlebrown;">
+   
+<h6 class="h1 mb-3 font-weight-normal">{{ message }}</h6>
+<h6 class="h6 mb-3 font-weight-normal"> <a href="/search">go back here</a>
+</h6>
+
+
+</main>
+ 
+
+
+{% endblock %}

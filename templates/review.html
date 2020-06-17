@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    BookBarge: Review
+{% endblock %}
+
+{% block body %}
+<header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand"><a href="/" style="color: saddlebrown;">BookBarge</a></h3>
+          <nav class="nav nav-masthead justify-content-center white">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/search">Search</a>
+            <a class="nav-link" href="/logout">Log out</a>
+          </nav>
+        </div>
+      </header>
+
+<main class="roww coversss coverss" style="color: teal;">
+ <div class="half" >
+     
+<div style="color: coral"><h1>"{{ book.title }}"</h1><br></div>
+________________________________________________________________
+<h6> <div class="roww" style="color:wheat">By <div style="color:rgb(133, 7, 150)">: {{ book.author }}</div></div><br>
+ <div class="roww" style="color:wheat">Publication Year:<div style="color:rgb(133, 7, 150)"> {{ book.year }}</div></div></h6>
+<div style="color:coral"><h6>ISBN:{{ book.isbn }}</h6></div>
+ ---------------------------------------------------------------
+ <div style="color:wheat">
+<h6>Review Count:{{ rcount }}</h6>
+<h6>Average Rating:{{ rating }}</h6>
+According to Goodreads,obtained through Goodreads API</div>
+________________________________________________________________
+<br><br>
+<div style="color:chocolate"><h1>Reviews</h1></div>
+
+{% if reviews is defined %}
+     {% for review in reviews %}
+<h6 style="color:wheat">-------------------------------------------------------<br>
+<div style="color:darkblue">{{ review.user_name }}</div> rated this book {{ review.rating }} out of 5</h6>
+<p><h5>{{ review.review }}<h5></p>
+<br>
+     {% endfor %}
+{% else %}
+  <h4>There no reviews yet.</h4>
+{% endif %}
+    </div>
+
+<div class="half">
+        <form action="{{ url_for('reviewsubmit', this_book_id=book.id) }}" method="post">
+
+            <div class="form-group">Your Rating:
+            <input type="radio" name="rating" value="1"> 1
+            <input type="radio" name="rating" value="2"> 2
+            <input type="radio" name="rating" value="3"> 3
+            <input type="radio" name="rating" value="4"> 4
+            <input type="radio" name="rating" value="5" checked> 5</div>
+            
+            <div class="form-group">
+            <textarea cols="30" name="comment" placeholder="Enter review here..."></textarea></div>
+            
+            <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            </form>
+             
+</div>
+</main>
+{% endblock %}

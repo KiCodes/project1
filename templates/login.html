@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+BookBarge
+{% endblock %}
+
+{% block body %}
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand"><a href="/" style="color: saddlebrown;">BookBarge</a></h3>
+          <nav class="nav nav-masthead justify-content-center white">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/search">Search</a>
+          </nav>
+        </div>
+      </header>
+</div>
+      <main role="main" class="inner coverss">
+        <form class="form-signin" method="post" action="{{ url_for('signin') }}">
+
+  <h1 class="h3 mb-3 font-weight-normal" style="color: saddlebrown;">log in here</h1>
+    <h6 class="h6 mb-3 font-weight-normal greenalert">{{ message }}</h6>
+    
+  <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+    
+  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+      
+  </div>
+  <button class="btn btn-lg btn-secondary" type="submit">Log in</button>
+      <a href="/signup" style="color: saddlebrown;">sign up</a>
+</form>
+      </main>
+
+
+
+{% endblock %}
