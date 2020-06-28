@@ -15,21 +15,25 @@
           <nav class="nav nav-masthead justify-content-center white">
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link active disabled" href="#">Search</a>
+            {% if session['log'] %}
             <a class="nav-link" href="/logout">Logout</a>
+            {% else %}
+            <a class="nav-link" href="/login">Login</a>
+            {% endif %}/a>
           </nav>
         </div>
       </header>
 
-    
+
       <main role="main" class="inner cover ">
           <h6 class="h6 mb-3 font-weight-normal greenalert">{{ message }}</h6>
     <form method="POST" action="{{ url_for('booklist')}}">
         <div class="shape covershape searchTab">
   <input type="text" class="form-control" aria-label="Text input with dropdown button" name="searchfor" placeholder="Type in isbn, title, or author">
   <div class="input-group-append">
-      
-        
-        
+
+
+
   </div>
 </div>
         </form>
